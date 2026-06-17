@@ -46,7 +46,15 @@ const swaggerOptions = {
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs, {
+  customCssUrl: CSS_URL,
+  customSiteTitle: "M3allem Store API",
+  customJs: [
+    "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui-bundle.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui-standalone-preset.js"
+  ]
+}));
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
