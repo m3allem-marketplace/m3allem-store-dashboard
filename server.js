@@ -23,7 +23,12 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `http://localhost:${PORT}`
+        url: `https://m3allem-store-dashboard.vercel.app`,
+        description: 'Production server'
+      },
+      {
+        url: `http://localhost:${PORT}`,
+        description: 'Local server'
       }
     ],
     components: {
@@ -62,3 +67,5 @@ mongoose.connect(process.env.MONGODB_URI).then(() => {
 }).catch((err) => {
   console.error('Error connecting to MongoDB:', err.message);
 });
+
+module.exports = app;
