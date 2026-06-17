@@ -43,7 +43,7 @@ const router = express.Router();
 // Create a product
 router.post('/', auth, async (req, res) => {
   try {
-    const { name, description, price } = req.body;
+    const { name, description, price, category } = req.body;
     
     if (!name || !price) {
       return res.status(400).json({ message: 'Name and price are required.' });
@@ -53,6 +53,7 @@ router.post('/', auth, async (req, res) => {
       name,
       description,
       price,
+      category,
       owner: req.user
     });
 
@@ -71,6 +72,12 @@ router.post('/', auth, async (req, res) => {
  *     tags: [Products]
  *     security:
  *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: category
+ *         schema:
+ *           type: string
+ *         description: Filter products by category ID
  *     responses:
  *       200:
  *         description: List of products
@@ -83,10 +90,14 @@ router.post('/', auth, async (req, res) => {
  *       401:
  *         description: Unauthorized
  */
-// Get all products for logged-in user
+// Get all products for logged-in user (optionally filtered by category)
 router.get('/', auth, async (req, res) => {
   try {
-    const products = await Product.find({ owner: req.user });
+    const query = { owner: req.user };
+    if (req.query.category) {
+      query.category = req.query.category;
+    }
+    const products = await Product.find(query).populate('category', 'name image');
     res.json(products);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -135,11 +146,12 @@ router.put('/:id', auth, async (req, res) => {
       return res.status(404).json({ message: 'Product not found or unauthorized.' });
     }
 
-    const { name, description, price } = req.body;
+    const { name, description, price, category: categoryId } = req.body;
     
     if (name) product.name = name;
     if (description) product.description = description;
     if (price) product.price = price;
+    if (categoryId) product.category = categoryId;
 
     const updatedProduct = await product.save();
     res.json(updatedProduct);

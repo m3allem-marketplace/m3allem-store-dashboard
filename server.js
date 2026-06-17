@@ -60,6 +60,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs, {
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/products', require('./routes/products'));
 app.use('/api/orders', require('./routes/orders'));
+app.use('/api/categories', require('./routes/categories'));
 
 // Basic route
 app.get('/', (req, res) => {
