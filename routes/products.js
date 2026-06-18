@@ -53,9 +53,12 @@ router.post('/', auth, async (req, res) => {
       name,
       description,
       price,
-      category,
       owner: req.user
     });
+
+    if (category) {
+      newProduct.category = category;
+    }
 
     const savedProduct = await newProduct.save();
     res.status(201).json(savedProduct);

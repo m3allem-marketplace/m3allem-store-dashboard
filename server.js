@@ -68,13 +68,22 @@ app.get('/', (req, res) => {
 });
 
 // Database connection
-mongoose.connect(process.env.MONGODB_URI).then(() => {
-  console.log('Connected to MongoDB');
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log('Connected to MongoDB');
+  } catch (err) {
+    console.error('Error connecting to MongoDB:', err.message);
+  }
+};
+
+connectDB();
+
+// Only listen if not running on Vercel (Vercel uses the exported app)
+if (process.env.NODE_ENV !== 'production') {
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
-}).catch((err) => {
-  console.error('Error connecting to MongoDB:', err.message);
-});
+}
 
 module.exports = app;

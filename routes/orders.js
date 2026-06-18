@@ -105,7 +105,7 @@ router.post('/', async (req, res) => {
  */
 router.get('/', auth, async (req, res) => {
   try {
-    const orders = await Order.find({ owner: req.user.id }).populate('product', 'name price').sort({ createdAt: -1 });
+    const orders = await Order.find({ owner: req.user }).populate('product', 'name price').sort({ createdAt: -1 });
     res.json(orders);
   } catch (err) {
     console.error('Error fetching orders:', err);
@@ -156,7 +156,7 @@ router.put('/:id/status', auth, async (req, res) => {
       return res.status(400).json({ message: 'Invalid status' });
     }
 
-    const order = await Order.findOne({ _id: req.params.id, owner: req.user.id });
+    const order = await Order.findOne({ _id: req.params.id, owner: req.user });
     
     if (!order) {
       return res.status(404).json({ message: 'Order not found or unauthorized' });

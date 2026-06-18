@@ -44,7 +44,7 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
     const category = new Category({
       name,
       image: req.file.path, // Cloudinary URL
-      owner: req.user.id
+      owner: req.user
     });
 
     await category.save();
@@ -71,7 +71,7 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
  */
 router.get('/', auth, async (req, res) => {
   try {
-    const categories = await Category.find({ owner: req.user.id }).sort({ createdAt: -1 });
+    const categories = await Category.find({ owner: req.user }).sort({ createdAt: -1 });
     res.json(categories);
   } catch (err) {
     console.error('Error fetching categories:', err);
@@ -117,7 +117,7 @@ router.put('/:id', auth, upload.single('image'), async (req, res) => {
   try {
     const { name } = req.body;
     
-    const category = await Category.findOne({ _id: req.params.id, owner: req.user.id });
+    const category = await Category.findOne({ _id: req.params.id, owner: req.user });
     if (!category) {
       return res.status(404).json({ message: 'Category not found or unauthorized' });
     }
@@ -159,7 +159,7 @@ router.put('/:id', auth, upload.single('image'), async (req, res) => {
  */
 router.delete('/:id', auth, async (req, res) => {
   try {
-    const category = await Category.findOneAndDelete({ _id: req.params.id, owner: req.user.id });
+    const category = await Category.findOneAndDelete({ _id: req.params.id, owner: req.user });
     if (!category) {
       return res.status(404).json({ message: 'Category not found or unauthorized' });
     }
