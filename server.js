@@ -56,6 +56,30 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs, {
   ]
 }));
 
+// Database connection
+const connectDB = async () => {
+  if (mongoose.connection.readyState >= 1) {
+    return;
+  }
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log('Connected to MongoDB');
+  } catch (err) {
+    console.error('Error connecting to MongoDB:', err.message);
+    throw err;
+  }
+};
+
+// Ensure DB is connected before handling requests
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    res.status(500).json({ error: 'Database connection failed' });
+  }
+});
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/products', require('./routes/products'));
@@ -66,18 +90,6 @@ app.use('/api/categories', require('./routes/categories'));
 app.get('/', (req, res) => {
   res.send('Welcome to the M3allem Store Backend API');
 });
-
-// Database connection
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log('Connected to MongoDB');
-  } catch (err) {
-    console.error('Error connecting to MongoDB:', err.message);
-  }
-};
-
-connectDB();
 
 // Only listen if not running on Vercel (Vercel uses the exported app)
 if (process.env.NODE_ENV !== 'production') {
