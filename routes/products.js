@@ -93,12 +93,15 @@ router.post('/', auth, async (req, res) => {
  *       401:
  *         description: Unauthorized
  */
-// Get all products for logged-in user (optionally filtered by category)
-router.get('/', auth, async (req, res) => {
+// Get all products (optionally filtered by category or owner)
+router.get('/', async (req, res) => {
   try {
-    const query = { owner: req.user };
+    const query = {};
     if (req.query.category) {
       query.category = req.query.category;
+    }
+    if (req.query.owner) {
+      query.owner = req.query.owner;
     }
     const products = await Product.find(query).populate('category', 'name image');
     res.json(products);

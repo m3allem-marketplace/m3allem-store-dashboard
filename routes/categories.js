@@ -69,9 +69,13 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
  *       500:
  *         description: Server error
  */
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const categories = await Category.find({ owner: req.user }).sort({ createdAt: -1 });
+    const query = {};
+    if (req.query.owner) {
+      query.owner = req.query.owner;
+    }
+    const categories = await Category.find(query).sort({ createdAt: -1 });
     res.json(categories);
   } catch (err) {
     console.error('Error fetching categories:', err);
