@@ -59,10 +59,8 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
  * @swagger
  * /api/categories:
  *   get:
- *     summary: Get all categories for the authenticated seller
+ *     summary: Get all categories
  *     tags: [Categories]
- *     security:
- *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: List of categories

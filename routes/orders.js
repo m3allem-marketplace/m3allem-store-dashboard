@@ -20,6 +20,7 @@ const pusher = new Pusher({
  *   post:
  *     summary: Create a new order and notify the seller
  *     tags: [Orders]
+ *     security: []
  *     requestBody:
  *       required: true
  *       content:
@@ -80,7 +81,12 @@ router.post('/', async (req, res) => {
     };
 
     // Trigger a Pusher event on a channel specific to the seller
-    pusher.trigger(`seller-${product.owner}`, 'new-order', orderData);
+    try {
+      await pusher.trigger(`seller-${product.owner.toString()}`, 'new-order', orderData);
+      console.log(`Pusher event sent to seller-${product.owner.toString()}`);
+    } catch (pusherError) {
+      console.error('Pusher error:', pusherError);
+    }
 
     res.status(201).json({ message: 'Order placed and seller notified successfully', order: orderData });
   } catch (err) {

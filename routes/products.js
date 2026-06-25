@@ -71,10 +71,8 @@ router.post('/', auth, async (req, res) => {
  * @swagger
  * /api/products:
  *   get:
- *     summary: Get all products for the logged-in user
+ *     summary: Get all products
  *     tags: [Products]
- *     security:
- *       - bearerAuth: []
  *     parameters:
  *       - in: query
  *         name: category
