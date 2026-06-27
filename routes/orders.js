@@ -3,6 +3,7 @@ const router = express.Router();
 const Product = require('../models/Product');
 const Order = require('../models/Order');
 const auth = require('../middleware/auth');
+const customerAuth = require('../middleware/customerAuth');
 const Pusher = require('pusher');
 
 // Configure Pusher using environment variables
@@ -20,7 +21,8 @@ const pusher = new Pusher({
  *   post:
  *     summary: Create a new order and notify the seller
  *     tags: [Orders]
- *     security: []
+ *     security:
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
@@ -45,7 +47,7 @@ const pusher = new Pusher({
  *       500:
  *         description: Server error
  */
-router.post('/', async (req, res) => {
+router.post('/', customerAuth, async (req, res) => {
   try {
     const { customerName, productId, quantity = 1 } = req.body;
 
