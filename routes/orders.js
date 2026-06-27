@@ -50,6 +50,7 @@ const pusher = new Pusher({
 router.post('/', customerAuth, async (req, res) => {
   try {
     const { customerName, productId, quantity = 1 } = req.body;
+    const customerId = req.customer.id || req.customer._id || req.customer.userId || "unknown";
 
     // Find the product to get the seller (owner) details
     const product = await Product.findById(productId);
@@ -62,6 +63,7 @@ router.post('/', customerAuth, async (req, res) => {
     // Create the order in the database (default status is 'pending')
     const order = new Order({
       customerName,
+      customerId,
       product: product._id,
       owner: product.owner,
       quantity,
@@ -94,6 +96,31 @@ router.post('/', customerAuth, async (req, res) => {
   } catch (err) {
     console.error('Error creating order:', err);
     res.status(500).json({ message: 'Server error while creating order' });
+  }
+});
+
+/**
+ * @swagger
+ * /api/orders/my-orders:
+ *   get:
+ *     summary: Get all orders for the authenticated customer
+ *     tags: [Orders]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: List of customer orders
+ *       500:
+ *         description: Server error
+ */
+router.get('/my-orders', customerAuth, async (req, res) => {
+  try {
+    const customerId = req.customer.id || req.customer._id || req.customer.userId;
+    const orders = await Order.find({ customerId }).populate('product', 'name price').sort({ createdAt: -1 });
+    res.json(orders);
+  } catch (err) {
+    console.error('Error fetching customer orders:', err);
+    res.status(500).json({ message: 'Server error' });
   }
 });
 
