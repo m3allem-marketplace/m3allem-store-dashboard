@@ -72,11 +72,15 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
  *       500:
  *         description: Server error
  */
+// Get all categories
 router.get('/', async (req, res) => {
   try {
     const query = {};
     if (req.query.owner) {
       query.owner = req.query.owner;
+    }
+    if (req.query.categoryId) {
+      query.categoryId = req.query.categoryId;
     }
     const categories = await Category.find(query).sort({ createdAt: -1 });
     res.json(categories);
