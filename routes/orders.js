@@ -39,6 +39,12 @@ const pusher = new Pusher({
  *                 type: string
  *               quantity:
  *                 type: number
+ *               location:
+ *                 type: string
+ *               latitude:
+ *                 type: number
+ *               longitude:
+ *                 type: number
  *     responses:
  *       201:
  *         description: Order created successfully
@@ -49,7 +55,7 @@ const pusher = new Pusher({
  */
 router.post('/', customerAuth, async (req, res) => {
   try {
-    const { customerName, productId, quantity = 1 } = req.body;
+    const { customerName, productId, quantity = 1, location, latitude, longitude } = req.body;
     const customerId = req.customer.id || req.customer._id || req.customer.userId || "unknown";
 
     // Find the product to get the seller (owner) details
@@ -67,7 +73,10 @@ router.post('/', customerAuth, async (req, res) => {
       product: product._id,
       owner: product.owner,
       quantity,
-      totalPrice
+      totalPrice,
+      location,
+      latitude,
+      longitude
     });
 
     await order.save();
@@ -80,6 +89,9 @@ router.post('/', customerAuth, async (req, res) => {
       quantity,
       price: product.price,
       totalPrice,
+      location: order.location,
+      latitude: order.latitude,
+      longitude: order.longitude,
       status: order.status,
       createdAt: order.createdAt
     };

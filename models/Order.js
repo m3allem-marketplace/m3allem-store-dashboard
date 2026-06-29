@@ -29,6 +29,15 @@ const orderSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  location: {
+    type: String
+  },
+  latitude: {
+    type: Number
+  },
+  longitude: {
+    type: Number
+  },
   status: {
     type: String,
     enum: ['pending', 'accepted', 'rejected'],
