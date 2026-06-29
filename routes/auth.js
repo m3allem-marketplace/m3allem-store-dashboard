@@ -31,9 +31,13 @@ const router = express.Router();
  *                 type: string
  *               password:
  *                 type: string
- *               businessType:
+ *               phone:
  *                 type: string
- *               companyName:
+ *               shopName:
+ *                 type: string
+ *               location:
+ *                 type: string
+ *               categoryId:
  *                 type: string
  *     responses:
  *       201:
@@ -44,10 +48,10 @@ const router = express.Router();
 // Register
 router.post('/register', async (req, res) => {
   try {
-    const { name, email, password, businessType, companyName } = req.body;
+    const { name, email, password, phone, shopName, location, categoryId } = req.body;
 
     // Validation
-    if (!name || !email || !password || !businessType || !companyName) {
+    if (!name || !email || !password || !phone || !shopName || !location || !categoryId) {
       return res.status(400).json({ message: 'Not all fields have been entered.' });
     }
 
@@ -70,8 +74,10 @@ router.post('/register', async (req, res) => {
       name,
       email,
       password: passwordHash,
-      businessType,
-      companyName
+      phone,
+      shopName,
+      location,
+      categoryId
     });
 
     const savedUser = await newUser.save();
@@ -139,8 +145,10 @@ router.post('/login', async (req, res) => {
       user: {
         id: user._id,
         name: user.name,
-        businessType: user.businessType,
-        companyName: user.companyName
+        phone: user.phone,
+        shopName: user.shopName,
+        location: user.location,
+        categoryId: user.categoryId
       }
     });
   } catch (err) {

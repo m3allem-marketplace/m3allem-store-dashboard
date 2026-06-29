@@ -17,12 +17,22 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  businessType: {
+  phone: {
     type: String,
     required: true,
     trim: true
   },
-  companyName: {
+  shopName: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  location: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  categoryId: {
     type: String,
     required: true,
     trim: true

@@ -43,11 +43,21 @@ const router = express.Router();
 // Create a product
 router.post('/', auth, async (req, res) => {
   try {
-    const { name, name_ar, description, price, category, product_id, sub_category, brand, currency, unit, specifications, shop } = req.body;
+    const { name, name_ar, description, price, product_id, sub_category, brand, currency, unit, specifications } = req.body;
     
     if ((!name && !name_ar) || !price) {
       return res.status(400).json({ message: 'Name (or name_ar) and price are required.' });
     }
+
+    // Fetch user to get shop info and category
+    const user = await require('../models/User').findById(req.user);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found.' });
+    }
+
+    // Find the actual Category document using the user's categoryId string
+    const categoryDoc = await require('../models/Category').findOne({ categoryId: user.categoryId });
+    const categoryObjectId = categoryDoc ? categoryDoc._id : null;
 
     const newProduct = new Product({
       name,
@@ -60,13 +70,14 @@ router.post('/', auth, async (req, res) => {
       currency,
       unit,
       specifications,
-      shop,
+      shop: {
+        shop_id: user._id.toString(),
+        name_ar: user.shopName,
+        address: user.location
+      },
+      category: categoryObjectId,
       owner: req.user
     });
-
-    if (category) {
-      newProduct.category = category;
-    }
 
     const savedProduct = await newProduct.save();
     res.status(201).json(savedProduct);
