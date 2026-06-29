@@ -56,7 +56,6 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs, {
   ]
 }));
 
-// Database connection
 const connectDB = async () => {
   if (mongoose.connection.readyState >= 1) {
     return;
