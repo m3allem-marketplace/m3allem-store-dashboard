@@ -1,9 +1,18 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
+  product_id: {
+    type: String,
+    trim: true,
+    unique: true,
+    sparse: true
+  },
   name: {
     type: String,
-    required: true,
+    trim: true
+  },
+  name_ar: {
+    type: String,
     trim: true
   },
   description: {
@@ -13,6 +22,18 @@ const productSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: true
+  },
+  sub_category: String,
+  brand: String,
+  currency: { type: String, default: 'EGP' },
+  unit: String,
+  specifications: { type: mongoose.Schema.Types.Mixed },
+  shop: {
+    shop_id: String,
+    name_ar: String,
+    rating: Number,
+    address: String,
+    delivery_time: String
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,

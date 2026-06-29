@@ -43,16 +43,24 @@ const router = express.Router();
 // Create a product
 router.post('/', auth, async (req, res) => {
   try {
-    const { name, description, price, category } = req.body;
+    const { name, name_ar, description, price, category, product_id, sub_category, brand, currency, unit, specifications, shop } = req.body;
     
-    if (!name || !price) {
-      return res.status(400).json({ message: 'Name and price are required.' });
+    if ((!name && !name_ar) || !price) {
+      return res.status(400).json({ message: 'Name (or name_ar) and price are required.' });
     }
 
     const newProduct = new Product({
       name,
+      name_ar,
       description,
       price,
+      product_id,
+      sub_category,
+      brand,
+      currency,
+      unit,
+      specifications,
+      shop,
       owner: req.user
     });
 
@@ -130,12 +138,30 @@ router.get('/', async (req, res) => {
  *           schema:
  *             type: object
  *             properties:
+ *               product_id:
+ *                 type: string
  *               name:
+ *                 type: string
+ *               name_ar:
  *                 type: string
  *               description:
  *                 type: string
  *               price:
  *                 type: number
+ *               sub_category:
+ *                 type: string
+ *               brand:
+ *                 type: string
+ *               currency:
+ *                 type: string
+ *               unit:
+ *                 type: string
+ *               specifications:
+ *                 type: object
+ *               shop:
+ *                 type: object
+ *               category:
+ *                 type: string
  *     responses:
  *       200:
  *         description: Product updated successfully
@@ -150,12 +176,20 @@ router.put('/:id', auth, async (req, res) => {
       return res.status(404).json({ message: 'Product not found or unauthorized.' });
     }
 
-    const { name, description, price, category: categoryId } = req.body;
+    const { name, name_ar, description, price, category: categoryId, product_id, sub_category, brand, currency, unit, specifications, shop } = req.body;
     
     if (name) product.name = name;
+    if (name_ar) product.name_ar = name_ar;
     if (description) product.description = description;
     if (price) product.price = price;
     if (categoryId) product.category = categoryId;
+    if (product_id) product.product_id = product_id;
+    if (sub_category) product.sub_category = sub_category;
+    if (brand) product.brand = brand;
+    if (currency) product.currency = currency;
+    if (unit) product.unit = unit;
+    if (specifications) product.specifications = specifications;
+    if (shop) product.shop = shop;
 
     const updatedProduct = await product.save();
     res.json(updatedProduct);

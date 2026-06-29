@@ -3,12 +3,21 @@ const mongoose = require('mongoose');
 const categorySchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
     trim: true
+  },
+  name_ar: {
+    type: String,
+    trim: true
+  },
+  categoryId: {
+    type: String,
+    trim: true,
+    unique: true,
+    sparse: true
   },
   image: {
     type: String, // Will store the Cloudinary URL
-    required: true
+    required: false
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,

@@ -24,6 +24,10 @@ const { upload } = require('../config/cloudinary');
  *             properties:
  *               name:
  *                 type: string
+ *               name_ar:
+ *                 type: string
+ *               categoryId:
+ *                 type: string
  *               image:
  *                 type: string
  *                 format: binary
@@ -35,15 +39,16 @@ const { upload } = require('../config/cloudinary');
  */
 router.post('/', auth, upload.single('image'), async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name, name_ar, categoryId } = req.body;
     
-    if (!req.file) {
-      return res.status(400).json({ message: 'Image is required' });
-    }
+    // image is now optional
+    const imagePath = req.file ? req.file.path : null;
 
     const category = new Category({
       name,
-      image: req.file.path, // Cloudinary URL
+      name_ar,
+      categoryId,
+      image: imagePath, // Cloudinary URL or null
       owner: req.user
     });
 
@@ -104,6 +109,10 @@ router.get('/', async (req, res) => {
  *             properties:
  *               name:
  *                 type: string
+ *               name_ar:
+ *                 type: string
+ *               categoryId:
+ *                 type: string
  *               image:
  *                 type: string
  *                 format: binary
@@ -117,7 +126,7 @@ router.get('/', async (req, res) => {
  */
 router.put('/:id', auth, upload.single('image'), async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name, name_ar, categoryId } = req.body;
     
     const category = await Category.findOne({ _id: req.params.id, owner: req.user });
     if (!category) {
@@ -125,6 +134,8 @@ router.put('/:id', auth, upload.single('image'), async (req, res) => {
     }
 
     if (name) category.name = name;
+    if (name_ar) category.name_ar = name_ar;
+    if (categoryId) category.categoryId = categoryId;
     if (req.file) {
       category.image = req.file.path; // Update image if provided
     }

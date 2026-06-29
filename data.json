@@ -1,0 +1,660 @@
+[
+  {
+    "category_id": "plumbing",
+    "category_name_ar": "تأسيس وتشطيب شبكات السباكة والصرف الصحي",
+    "shops": [
+      {
+        "shop_id": "plumb_mega_store",
+        "name_ar": "الشركة العالمية للتجارة والتوكيلات (موزع الشريف وباننجر وإيديال)",
+        "rating": 4.9,
+        "address": "ميدان السبتية، وسط البلد، القاهرة",
+        "delivery_time": "24 ساعة",
+        "products": [
+          {
+            "product_id": "plumb_ppr_25",
+            "name_ar": "ماسورة بولي بروبلين خضراء 25 مم (3/4 بوصة) PN20 - طول 4 متر",
+            "sub_category": "تأسيس تغذية",
+            "brand": "Banninger / الشريف",
+            "price": 285.0,
+            "currency": "EGP",
+            "unit": "قطعة",
+            "specifications": { "thickness": "4.2mm", "standard": "DIN 8077", "working_pressure": "20 Bar" }
+          },
+          {
+            "product_id": "plumb_ppr_elbow_25",
+            "name_ar": "كوع سن ذكر 25 مم × 1/2 بوصة بولي بروبلين لنقاط التغذية",
+            "sub_category": "قطع تأسيس تغذية",
+            "brand": "Banninger / الشريف",
+            "price": 95.0,
+            "currency": "EGP",
+            "unit": "قطعة",
+            "specifications": { "insert_material": "Solid Brass (نحاس)", "size": "25mm x 1/2\"" }
+          },
+          {
+            "product_id": "plumb_pvc_4inch",
+            "name_ar": "ماسورة صرف PVC رمادي 4 بوصة (110 مم) - سُمك 3.2 مم طول 4 متر",
+            "sub_category": "تأسيس صرف",
+            "brand": "الشريف للبلاستيك",
+            "price": 540.0,
+            "currency": "EGP",
+            "unit": "قطعة",
+            "specifications": { "thickness": "3.2mm", "application": "Soil/Waste pipes", "standard": "ISO 4435" }
+          },
+          {
+            "product_id": "plumb_pvc_tee_4",
+            "name_ar": "مشترك واي (Y-Branch) مقاس 4 بوصة × 4 بوصة PVC زاوية 45",
+            "sub_category": "قطع تأسيس صرف",
+            "brand": "الشريف للبلاستيك",
+            "price": 145.0,
+            "currency": "EGP",
+            "unit": "قطعة",
+            "specifications": { "angle": "45 Degrees", "type": "Solvent cement joint" }
+          },
+          {
+            "product_id": "plumb_angle_valve",
+            "name_ar": "محبس زاوية نحاس 1/2 × 1/2 بوصة كروم للفلاتر والسخانات",
+            "sub_category": "مستلزمات تشطيب",
+            "brand": "Grohe / Arco",
+            "price": 420.0,
+            "currency": "EGP",
+            "unit": "قطعة",
+            "specifications": { "material": "Heavy Brass", "finish": "Chrome plated", "origin": "Spain/Germany" }
+          },
+          {
+            "product_id": "plumb_shattaf_set",
+            "name_ar": "شطاف أوتوماتيك خارجي كروم مع خرطوم 1.25 متر وحامل",
+            "sub_category": "إكسسوارات تشطيب",
+            "brand": "Ideal Standard",
+            "price": 850.0,
+            "currency": "EGP",
+            "unit": "طقم",
+            "specifications": { "hose_type": "Anti-twist stainless steel", "finish": "Chrome" }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category_id": "electrical",
+    "category_name_ar": "الشبكات والأنظمة الكهربائية واللوحات",
+    "shops": [
+      {
+        "shop_id": "elec_hyper_market",
+        "name_ar": "مجموعة السويدي والأنظمة التكنولوجية",
+        "rating": 4.8,
+        "address": "المنطقة الصناعية، التجمع الخامس، القاهرة",
+        "delivery_time": "في نفس اليوم",
+        "products": [
+          {
+            "product_id": "elec_wire_1.5",
+            "name_ar": "لفة سلك نحاس معزول 1.5 مم٢ (طول 100 متر) - لإنارة الأسقف",
+            "sub_category": "أسلاك وكابلات",
+            "brand": "السويدي للكابلات",
+            "price": 1620.0,
+            "currency": "EGP",
+            "unit": "لفة",
+            "specifications": { "core": "Single core flexible", "standard": "IEC 60227", "insulation": "PVC" }
+          },
+          {
+            "product_id": "elec_wire_4.0",
+            "name_ar": "لفة سلك نحاس معزول 4 مم٢ (طول 100 متر) - لخطوط التكييف والمطبخ",
+            "sub_category": "أسلاك وكابلات",
+            "brand": "السويدي للكابلات",
+            "price": 4082.0,
+            "currency": "EGP",
+            "unit": "لفة",
+            "specifications": { "core": "Stranded copper", "voltage": "450/750V" }
+          },
+          {
+            "product_id": "elec_conduit_16",
+            "name_ar": "خرطوم سوستة مرن PVC رمادي مقاس 16 مم (لفة 50 متر) مضاد للهب",
+            "sub_category": "مسارات وخراطيم",
+            "brand": "علاء الدين / مصطفى محمود",
+            "price": 240.0,
+            "currency": "EGP",
+            "unit": "لفة",
+            "specifications": { "material": "Self-extinguishing PVC", "internal_diameter": "16mm" }
+          },
+          {
+            "product_id": "elec_mcb_16a",
+            "name_ar": "قاطع تيار أوتوماتيك أحادي القطب (MCB) سعة 16 أمبير منحنى C",
+            "sub_category": "لوحات وقواطع حماية",
+            "brand": "Schneider Electric / ABB",
+            "price": 195.0,
+            "currency": "EGP",
+            "unit": "قطعة",
+            "specifications": { "poles": "1P", "breaking_capacity": "4.5 kA", "tripping_curve": "C curve" }
+          },
+          {
+            "product_id": "elec_switch_plate",
+            "name_ar": "شاسيه ماجيك معدني لتثبيت لقم المفاتيح والبرايز",
+            "sub_category": "علب وشاسيهات",
+            "brand": "فينوس / سانشي",
+            "price": 12.5,
+            "currency": "EGP",
+            "unit": "قطعة",
+            "specifications": { "material": "Galvanized steel sheet", "size": "3 gangs ready" }
+          },
+          {
+            "product_id": "elec_socket_module",
+            "name_ar": "لقمة بريزة كهرباء وشاحن USB مدمج تيار 16 أمبير",
+            "sub_category": "لقم ومفاتيح",
+            "brand": "Legrand (سلسلة ماتريكس)",
+            "price": 310.0,
+            "currency": "EGP",
+            "unit": "قطعة",
+            "specifications": { "current_rating": "16A", "usb_output": "5V, 2.1A" }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category_id": "painting",
+    "category_name_ar": "الدهانات، المعجون والمواد الكيميائية المعالجة",
+    "shops": [
+      {
+        "shop_id": "paint_wholesale_01",
+        "name_ar": "مستودع كابتال للدهانات الحديثة (توكيل جوتن وسايبس والجزيرة)",
+        "rating": 4.9,
+        "address": "شارع مؤسسة الزكاة، المرج، القاهرة",
+        "delivery_time": "24 ساعة",
+        "products": [
+          {
+            "product_id": "paint_sealer_water",
+            "name_ar": "سيلر مائي نفاذ عالي الجودة للبطانات الداخلية والخارجية (بستلة 15 لتر)",
+            "sub_category": "بطانات وعوازل حوائط",
+            "brand": "GLC / سايبس",
+            "price": 540.0,
+            "currency": "EGP",
+            "unit": "بستلة",
+            "specifications": { "solid_by_weight": "42%", "drying_time": "1-2 hours", "coverage": "12 m2/L" }
+          },
+          {
+            "product_id": "paint_putty_acrylic",
+            "name_ar": "معجون أكريليك داخلي جاهز للتسوية والصنفرة (شكارة 15 كجم)",
+            "sub_category": "معجون الحوائط",
+            "brand": "Jotun (سلسلة Fenomastic Putty)",
+            "price": 380.0,
+            "currency": "EGP",
+            "unit": "شكارة",
+            "specifications": { "type": "Water-based acrylic", "shrinkage": "Minimal", "easy_sanding": "Yes" }
+          },
+          {
+            "product_id": "paint_plastic_matt",
+            "name_ar": "دهان بلاستيك مطفي فاخر داخلي (بستلة 16 لتر) ناصع البياض",
+            "sub_category": "دهانات بلاستيك مائية",
+            "brand": "Jotun (Fenomastic Pure Matt)",
+            "price": 2650.0,
+            "currency": "EGP",
+            "unit": "بستلة",
+            "specifications": { "scrub_resistance": "Excellent", "washable": "Yes", "eco_friendly": "Low VOC" }
+          },
+          {
+            "product_id": "paint_enamel_gloss",
+            "name_ar": "دهان زيت لاكيه لامع ممتاز (جالون 3.75 لتر) للأبواب والحديد",
+            "sub_category": "دهانات زيتية وسيرفيس",
+            "brand": "باكين (Pachin) / سايبس",
+            "price": 480.0,
+            "currency": "EGP",
+            "unit": "جالون",
+            "specifications": { "base": "Alkyd-based enamel", "gloss_level": "90% at 60 deg" }
+          },
+          {
+            "product_id": "paint_roller_9",
+            "name_ar": "رول نقاشة 9 بوصة ميكروفيبر عالي الكثافة لمنع التنقير مع يد طويلة",
+            "sub_category": "أدوات ومستلزمات",
+            "brand": "Harris / انكو",
+            "price": 210.0,
+            "currency": "EGP",
+            "unit": "قطعة",
+            "specifications": { "fiber_length": "12mm", "frame_material": "Heavy duty zinc plated steel" }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category_id": "ceramics_flooring",
+    "category_name_ar": "السيراميك، البورسلين ومواد اللصق والتركيب",
+    "shops": [
+      {
+        "shop_id": "cera_showroom_01",
+        "name_ar": "العميد للمعارض والتوكيلات (كليوباترا، رويال، والجوهرة)",
+        "rating": 4.7,
+        "address": "طريق الأوتوستراد، صقر قريش، المعادي، القاهرة",
+        "delivery_time": "48-72 ساعة",
+        "products": [
+          {
+            "product_id": "cera_floor_60",
+            "name_ar": "سيراميك أرضيات ليزر كت (قطع ليزر) موديل رخامي مقاس 60×60 سم - فرز أول",
+            "sub_category": "سيراميك أرضيات",
+            "brand": "سيراميك كليوباترا",
+            "price": 245.0,
+            "currency": "EGP",
+            "unit": "متر مربع",
+            "specifications": {
+              "dimensions": "600x600 mm",
+              "grade": "First Grade (فرز أول)",
+              "edge_type": "Rectified (ليزر كت)",
+              "pei_rating": "PEI IV (حركة متوسطة إلى ثقيلة)",
+              "water_absorption": "E > 10% (Group BIII)"
+            }
+          },
+          {
+            "product_id": "cera_wall_kitchen",
+            "name_ar": "سيراميك حوائط مطابخ وحمامات مقاس 30×90 سم - مظهر هيدروليك ديكور - فرز أول",
+            "sub_category": "سيراميك حوائط",
+            "brand": "سيراميك الجوهرة",
+            "price": 310.0,
+            "currency": "EGP",
+            "unit": "متر مربع",
+            "specifications": {
+              "dimensions": "300x900 mm",
+              "grade": "First Grade",
+              "finish": "Glossy (لامع)",
+              "thickness": "8.5 mm"
+            }
+          },
+          {
+            "product_id": "porc_floor_80",
+            "name_ar": "بورسلين أرضيات مستورد Full Body مقاس 80×80 سم سوبر وايت جليتز - فرز أول",
+            "sub_category": "بورسلين أرضيات",
+            "brand": "مستورد (رويال عماني / هندي)",
+            "price": 580.0,
+            "currency": "EGP",
+            "unit": "متر مربع",
+            "specifications": {
+              "dimensions": "800x800 mm",
+              "grade": "First Grade",
+              "type": "Full Body Porcelain",
+              "water_absorption": "E <= 0.5% (Group BIa)",
+              "finish": "Polished (ملمع)"
+            }
+          },
+          {
+            "product_id": "cera_adhesive_fix",
+            "name_ar": "مونه لاصقة للبورسلين والسيراميك عالي الإجهاد (شكارة 25 كجم) - إسمنتي معالج بوليمير",
+            "sub_category": "مواد اللصق والتثبيت",
+            "brand": "سافيتو (Saveto) / سيكا فليكس",
+            "price": 225.0,
+            "currency": "EGP",
+            "unit": "شكارة",
+            "specifications": {
+              "standard": "EN 12004 Class C1TE",
+              "open_time": "20-30 min",
+              "mixing_water": "5.5 - 6.0 Liters"
+            }
+          },
+          {
+            "product_id": "cera_grout_joint",
+            "name_ar": "سقية سيراميك وبورسلين ملونة مضادة للبكتيريا والفطريات (عبوة 5 كجم)",
+            "sub_category": "مواد اللصق والتثبيت",
+            "brand": "سيكا مصر (Sika Tile Grout)",
+            "price": 115.0,
+            "currency": "EGP",
+            "unit": "عبوة",
+            "specifications": {
+              "joint_width": "2mm to 5mm",
+              "mold_resistant": "Yes"
+            }
+          },
+          {
+            "product_id": "cera_spacers_2mm",
+            "name_ar": "صلبان سيراميك بلاستيك (Spacers) مقاس 2 مم لضبط الفواصل والعراميس",
+            "sub_category": "أدوات ومستلزمات التركيب",
+            "brand": "محلية عالية الجودة",
+            "price": 45.0,
+            "currency": "EGP",
+            "unit": "كيس",
+            "specifications": {
+              "size": "2.0 mm",
+              "material": "Pure HDPE plastic"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category_id": "demolition_alteration",
+    "category_name_ar": "تعديلات معمارية وتكسير حوائط وتدعيم",
+    "shops": [
+      {
+        "shop_id": "demo_struct_01",
+        "name_ar": "الشركة الدولية للكيماويات والمقاولات التخصصية",
+        "rating": 4.9,
+        "address": "امتداد حسن المأمون، مدينة نصر، القاهرة",
+        "delivery_time": "24 ساعة",
+        "products": [
+          {
+            "product_id": "demo_epoxy_150",
+            "name_ar": "كيمابوكسي 150 (Kemapoxy 150) - مركب إيبوكسي قليل اللزوجة لتزريع أشاير الحديد (عبوة 1 كجم)",
+            "sub_category": "مواد تدعيم وتزريع أشاير",
+            "brand": "CMB (كيماويات البناء الحديث)",
+            "price": 450.0,
+            "currency": "EGP",
+            "unit": "عبوة",
+            "specifications": {
+              "type": "Epoxy Resin (Pure)",
+              "mixing_ratio": "2:1 by weight",
+              "pot_life": "45 min at 25C",
+              "compressive_strength": "70 N/mm2",
+              "bond_strength": "greater than 3.5 N/mm2 (Concrete failure)"
+            }
+          },
+          {
+            "product_id": "demo_grout_200",
+            "name_ar": "سيكا جروت 200 (SikaGrout-200) - مونه إسمنتية غير منكمشة عالية المقاومة لملء الفراغات (شكارة 25 كجم)",
+            "sub_category": "جروت ومواد ملء الفراغات",
+            "brand": "Sika Egypt",
+            "price": 290.0,
+            "currency": "EGP",
+            "unit": "شكارة",
+            "specifications": {
+              "appearance": "Grey powder",
+              "water_ratio": "3.75 - 4.25 Liters per bag",
+              "compressive_strength_3days": "greater than 40 N/mm2",
+              "compressive_strength_28days": "greater than 60 N/mm2",
+              "expansion": "Controlled positive expansion"
+            }
+          },
+          {
+            "product_id": "demo_addibond_65",
+            "name_ar": "أديبوند 65 (Addibond 65) - إضافات لاتكس SBR لتحسين خواص المونة والربط اللحام الإنشائي (جركن 5 كجم)",
+            "sub_category": "إضافات المونة والربط",
+            "brand": "CMB (كيماويات البناء الحديث)",
+            "price": 620.0,
+            "currency": "EGP",
+            "unit": "جركن",
+            "specifications": {
+              "base": "Modified SBR Latex",
+              "solid_content": "approx 45%",
+              "application_rate": "0.2 kg/m2 per mm thickness",
+              "tensile_strength": "Excellent adhesion to concrete and steel"
+            }
+          },
+          {
+            "product_id": "demo_diamond_blade",
+            "name_ar": "اسطوانة قطع خرسانة مسلحة ماسية ليزر (Laser Welded) قطر 14 بوصة / 350 مم",
+            "sub_category": "معدات ومستلزمات تكسير",
+            "brand": "Bosch Professional",
+            "price": 3850.0,
+            "currency": "EGP",
+            "unit": "قطعة",
+            "specifications": {
+              "bore_size": "25.4 mm",
+              "segment_height": "10 mm",
+              "max_rpm": 5400,
+              "application": "Reinforced concrete, stone and cured asphalt"
+            }
+          },
+          {
+            "product_id": "demo_hilti_1500",
+            "name_ar": "هيلتي تكسير خرسانة (Demolition Hammer) قدرة 1500 واط قوة طرق 16.8 جول",
+            "sub_category": "معدات ومستلزمات تكسير",
+            "brand": "Total / Bosch",
+            "price": 4850.0,
+            "currency": "EGP",
+            "unit": "جهاز",
+            "specifications": {
+              "power_input": "1500 W",
+              "impact_energy": "16.8 Joules",
+              "tool_holder": "SDS-Max",
+              "weight": "10.1 kg"
+            }
+          },
+          {
+            "product_id": "demo_steel_mesh",
+            "name_ar": "شبك حديد ممدد (Expanded Metal Mesh) لتدعيم الفواصل ومنع الشروخ الإنشائية",
+            "sub_category": "مواد تدعيم وتزريع أشاير",
+            "brand": "محلية",
+            "price": 320.0,
+            "currency": "EGP",
+            "unit": "لفة",
+            "specifications": {
+              "material": "Cold rolled steel sheet",
+              "thickness": "0.50 mm",
+              "mesh_size": "10x20 mm",
+              "roll_width": "20 cm"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category_id": "masonry_building",
+    "category_name_ar": "أعمال مباني الطوب والمحارة والعزل",
+    "shops": [
+      {
+        "shop_id": "masonry_tech_01",
+        "name_ar": "تكنو-بلد لتوريدات مواد البناء المتكاملة",
+        "rating": 4.7,
+        "address": "طريق مصر إسماعيلية الصحراوي، القاهرة",
+        "delivery_time": "24-48 ساعة",
+        "products": [
+          {
+            "product_id": "mason_brick_red",
+            "name_ar": "طوب أحمر طفلي مخرم (ألف طوبة) مقاس 22×11×6 سم - مصانع الصف",
+            "sub_category": "الطوب ومواد البناء",
+            "brand": "مصانع الصف والرشيد",
+            "price": 1650.0,
+            "currency": "EGP",
+            "unit": "ألف طوبة",
+            "specifications": {
+              "dimensions": "220x110x60 mm",
+              "type": "Perforated Clay Brick",
+              "compressive_strength": "greater than 50 kg/cm2"
+            }
+          },
+          {
+            "product_id": "mason_brick_cement",
+            "name_ar": "طوب إسمنتي مصمت مقاس 25×12×6 سم (ألف طوبة) - مقاومة انضغاط 70 كجم/سم٢",
+            "sub_category": "الطوب ومواد البناء",
+            "brand": "مصانع حلوان الحديثة",
+            "price": 2100.0,
+            "currency": "EGP",
+            "unit": "ألف طوبة",
+            "specifications": {
+              "dimensions": "250x120x60 mm",
+              "density": "approx 2100 kg/m3",
+              "absorption_rate": "less than 10%",
+              "compressive_strength": "70 kg/cm2"
+            }
+          },
+          {
+            "product_id": "mason_cement_425",
+            "name_ar": "أسمنت بورتلاندي عادي - رتبة 42.5 (شيكارة 50 كجم) معتمد للمباني والمحارة",
+            "sub_category": "الأسمنت والجبس والبودرة",
+            "brand": "أسمنت السويدي / لافارج",
+            "price": 145.0,
+            "currency": "EGP",
+            "unit": "شكارة",
+            "specifications": {
+              "weight": "50 kg",
+              "type": "CEM I 42.5N",
+              "standard": "ES 4756-1 / EN 197-1"
+            }
+          },
+          {
+            "product_id": "mason_cement_white",
+            "name_ar": "أسمنت أبيض سوبر عالي النقاوة والنعومة (شيكارة 50 كجم)",
+            "sub_category": "الأسمنت والجبس والبودرة",
+            "brand": "أسمنت سيناء",
+            "price": 210.0,
+            "currency": "EGP",
+            "unit": "شكارة",
+            "specifications": {
+              "weight": "50 kg",
+              "type": "CEM I 42.5N (White)",
+              "whiteness_degree": "greater than 88%"
+            }
+          },
+          {
+            "product_id": "mason_gypsum",
+            "name_ar": "جبس معمارى ممتاز فائق البياض لأعمال المحارة والتشكيل (شيكارة 40 كجم)",
+            "sub_category": "الأسمنت والجبس والبودرة",
+            "brand": "جبس سيناء / العامرية",
+            "price": 95.0,
+            "currency": "EGP",
+            "unit": "شكارة",
+            "specifications": {
+              "weight": "40 kg",
+              "initial_setting_time": "approx 10-15 min",
+              "purity": "greater than 90% Calcium Sulfate"
+            }
+          },
+          {
+            "product_id": "mason_plaster_mesh",
+            "name_ar": "شبك محارة ممدد مجلفن (لفة 20 متر) عرض 15 سم لتسليح الفواصل والزوايا",
+            "sub_category": "مستلزمات وزوايا المحارة",
+            "brand": "الشركة المصرية للشبك الممدد",
+            "price": 185.0,
+            "currency": "EGP",
+            "unit": "لفة",
+            "specifications": {
+              "material": "Hot-dip galvanized steel",
+              "thickness": "0.40 mm",
+              "weight_per_m2": "0.35 kg",
+              "roll_length": "20 meters"
+            }
+          },
+          {
+            "product_id": "mason_corner_pvc",
+            "name_ar": "زاوية محارة PVC مع شبك فيبر جلاس مدمج (طول 3 متر) لحماية السواكف والزوايا",
+            "sub_category": "مستلزمات وزوايا المحارة",
+            "brand": "Protector Profiles",
+            "price": 55.0,
+            "currency": "EGP",
+            "unit": "قطعة",
+            "specifications": {
+              "mesh_width": "100x100 mm",
+              "pvc_thickness": "1.2 mm",
+              "length": "3 meters",
+              "uv_resistant": "Yes"
+            }
+          },
+          {
+            "product_id": "mason_sikament",
+            "name_ar": "سيكامنت آر (Sikament-R) - ملدن ومؤخر شك فائق لخلطات المحارة والخرسانة (جركن 20 لتر)",
+            "sub_category": "إضافات ومواد كيميائية",
+            "brand": "Sika Egypt",
+            "price": 1150.0,
+            "currency": "EGP",
+            "unit": "جركن",
+            "specifications": {
+              "base": "Modified synthetic polymer",
+              "dosage": "0.2% - 2.0% by weight of cement",
+              "water_reduction": "up to 15%",
+              "effect": "Improves workability and density"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category_id": "carpentry",
+    "category_name_ar": "تركيب حلوق وأبواب خشبية نجارة",
+    "shops": [
+      {
+        "shop_id": "joinery_shop_01",
+        "name_ar": "الشركة الفنلندية لتصنيع وتجارة الأخشاب الهندسية والحلوق",
+        "rating": 4.6,
+        "address": "المنطقة الصناعية بجمصة، الدقهلية",
+        "delivery_time": "48-72 ساعة",
+        "products": [
+          {
+            "product_id": "carp_frame_moski",
+            "name_ar": "حلق خشب موسكي قطاع 2×6 بوصة (تصفية توريد 4.5×14 سم) مجفف بالفرن ومعالج",
+            "sub_category": "الحلوق الخشبية",
+            "brand": "الشركة الفنلندية للأخشاب",
+            "price": 820.0,
+            "currency": "EGP",
+            "unit": "قطعة",
+            "specifications": {
+              "wood_type": "Finnish Red Wood (Grade A / موسكي)",
+              "moisture_content": "10% - 12% (Kiln Dried)",
+              "joint_type": "Mortise and Tenon (تلسين ميكانيكي)",
+              "coating": "Primer face (وجه فلوت حماية)"
+            }
+          },
+          {
+            "product_id": "carp_door_oak",
+            "name_ar": "ضلفة باب كبس هندسي (Engineering Flush Door) تجليد قشرة أرو طبيعي - سمك 45 مم",
+            "sub_category": "ضلف الأبواب",
+            "brand": "Eggy Wood (إيجي وود)",
+            "price": 4100.0,
+            "currency": "EGP",
+            "unit": "ضلفة",
+            "specifications": {
+              "internal_structure": "Solid wood finger-jointed cores (موسكي عوارض كل 5 سم)",
+              "skin_material": "MDF 6mm with natural Oak veneer",
+              "lipping": "Solid Beech wood 20mm (قشاط زان)"
+            }
+          },
+          {
+            "product_id": "carp_door_moski",
+            "name_ar": "ضلفة باب شقة خشب موسكي كبس قشرة زان (بدون الحلق) جاهز على الدهان",
+            "sub_category": "ضلف الأبواب",
+            "brand": "توب وود",
+            "price": 2850.0,
+            "currency": "EGP",
+            "unit": "ضلفة",
+            "specifications": {
+              "internal_structure": "Semi-solid honeycomb / Swedish wood slats",
+              "skin_material": "MDF 4mm with Beech veneer",
+              "thickness": "40 mm"
+            }
+          },
+          {
+            "product_id": "carp_glue_ok",
+            "name_ar": "غراء أبيض ممتاز عالي الصلابة والالتصاق لصق أخشاب (عبوة 1 كجم)",
+            "sub_category": "غراء ومواد تثبيت وتركيب",
+            "brand": "أوكي (Ok) / بنص",
+            "price": 120.0,
+            "currency": "EGP",
+            "unit": "عبوة",
+            "specifications": {
+              "base": "Polyvinyl Acetate (PVA) emulsion",
+              "open_time": "10-15 min",
+              "full_cure": "24 hours",
+              "color_after_drying": "Transparent light yellow"
+            }
+          },
+          {
+            "product_id": "carp_lock_ahram",
+            "name_ar": "قفل سلندر كمبيوتر نحاس ثقيل (Mortise Lock) مقاس 85 مم مع 5 مفاتيح مشفرة",
+            "sub_category": "كالون وإكسسوارات أبواب",
+            "brand": "الأهرام للمشغولات المعدنية (Al-Ahram Security)",
+            "price": 890.0,
+            "currency": "EGP",
+            "unit": "طقم",
+            "specifications": {
+              "material": "Solid Brass cylinder & face plate",
+              "center_distance": "85 mm",
+              "cycle_tested": "200,000 cycles",
+              "security_grade": "High security anti-picking"
+            }
+          },
+          {
+            "product_id": "carp_hinges_pack",
+            "name_ar": "طقم مفصلات باب حديد محملة 4 بوصة (3 قطع) مع مسامير التثبيت",
+            "sub_category": "كالون وإكسسوارات أبواب",
+            "brand": "الأهرام للمعادن",
+            "price": 165.0,
+            "currency": "EGP",
+            "unit": "طقم",
+            "specifications": {
+              "size": "4 inches (100mm)",
+              "thickness": "2.5 mm",
+              "material": "Steel with anti-rust plating",
+              "pack_contents": "3 Hinges + matching screws"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
