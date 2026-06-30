@@ -88,10 +88,42 @@ router.post('/', auth, async (req, res) => {
 
 /**
  * @swagger
+ * /api/products/store:
+ *   get:
+ *     summary: Get all products grouped by category for the public store
+ *     tags: [Products]
+ *     responses:
+ *       200:
+ *         description: Organized catalog of categories and products
+ */
+// Public store endpoint to get all products grouped by category
+router.get('/store', async (req, res) => {
+  try {
+    const categories = await require('../models/Category').find().lean();
+    const products = await Product.find().lean();
+
+    const catalog = categories.map(cat => {
+      const catProducts = products.filter(p => p.category && p.category.toString() === cat._id.toString());
+      return {
+        ...cat,
+        products: catProducts
+      };
+    });
+
+    res.json(catalog);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+/**
+ * @swagger
  * /api/products:
  *   get:
- *     summary: Get all products
+ *     summary: Get all products for the logged-in user
  *     tags: [Products]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: query
  *         name: category
@@ -110,15 +142,12 @@ router.post('/', auth, async (req, res) => {
  *       401:
  *         description: Unauthorized
  */
-// Get all products (optionally filtered by category or owner)
-router.get('/', async (req, res) => {
+// Get all products (only for the logged in user)
+router.get('/', auth, async (req, res) => {
   try {
-    const query = {};
+    const query = { owner: req.user };
     if (req.query.category) {
       query.category = req.query.category;
-    }
-    if (req.query.owner) {
-      query.owner = req.query.owner;
     }
     const products = await Product.find(query).populate('category', 'name image');
     res.json(products);

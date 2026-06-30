@@ -132,9 +132,9 @@ router.put('/:id', auth, upload.single('image'), async (req, res) => {
   try {
     const { name, name_ar, categoryId } = req.body;
     
-    const category = await Category.findOne({ _id: req.params.id, owner: req.user });
+    const category = await Category.findOne({ _id: req.params.id });
     if (!category) {
-      return res.status(404).json({ message: 'Category not found or unauthorized' });
+      return res.status(404).json({ message: 'Category not found' });
     }
 
     if (name) category.name = name;
@@ -176,9 +176,9 @@ router.put('/:id', auth, upload.single('image'), async (req, res) => {
  */
 router.delete('/:id', auth, async (req, res) => {
   try {
-    const category = await Category.findOneAndDelete({ _id: req.params.id, owner: req.user });
+    const category = await Category.findOneAndDelete({ _id: req.params.id });
     if (!category) {
-      return res.status(404).json({ message: 'Category not found or unauthorized' });
+      return res.status(404).json({ message: 'Category not found' });
     }
     res.json({ message: 'Category deleted successfully' });
   } catch (err) {
