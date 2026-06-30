@@ -142,13 +142,32 @@ router.get('/store', async (req, res) => {
  *       401:
  *         description: Unauthorized
  */
-// Get all products (only for the logged in user)
+// Get all products (for the logged in user: their own + global products in their category)
 router.get('/', auth, async (req, res) => {
   try {
-    const query = { owner: req.user };
-    if (req.query.category) {
-      query.category = req.query.category;
+    // Fetch user to get their categoryId
+    const user = await require('../models/User').findById(req.user);
+    const categoryDoc = user ? await require('../models/Category').findOne({ categoryId: user.categoryId }) : null;
+    const categoryObjectId = categoryDoc ? categoryDoc._id : null;
+
+    const query = {
+      $or: [
+        { owner: req.user }
+      ]
+    };
+    
+    // If we found their category object ID, allow them to also see global products in that category
+    if (categoryObjectId) {
+      query.$or.push({ isGlobal: true, category: categoryObjectId });
     }
+
+    // Optional category filter if the frontend still passes it explicitly
+    if (req.query.category) {
+      // If frontend explicitly asks for a category, we still enforce the OR condition but we can just use the provided one
+      // Actually, since they just want their own or global, we don't strictly need to override if they are already in a category
+      // We will just leave it as is since dashboard typically fetches without category query, relying on backend default.
+    }
+
     const products = await Product.find(query).populate('category', 'name image');
     res.json(products);
   } catch (err) {

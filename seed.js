@@ -74,7 +74,8 @@ const seedData = async () => {
               specifications: prodData.specifications,
               shop: shopInfo,
               category: category._id,
-              owner: owner._id
+              owner: owner._id,
+              isGlobal: true
             });
             await product.save();
             console.log(`Created product: ${product.name_ar}`);
@@ -89,6 +90,7 @@ const seedData = async () => {
             product.specifications = prodData.specifications;
             product.shop = shopInfo;
             product.category = category._id;
+            product.isGlobal = true;
             await product.save();
             console.log(`Updated product: ${product.name_ar}`);
           }

@@ -37,8 +37,11 @@ const productSchema = new mongoose.Schema({
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    ref: 'User'
+  },
+  isGlobal: {
+    type: Boolean,
+    default: false
   },
   category: {
     type: mongoose.Schema.Types.ObjectId,
