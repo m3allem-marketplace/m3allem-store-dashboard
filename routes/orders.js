@@ -69,13 +69,15 @@ router.post('/', customerAuth, async (req, res) => {
 
     const totalPrice = product.price * quantity;
 
+    const ownerId = req.body.vendorId || product.owner;
+
     // Create the order in the database (default status is 'pending')
     const order = new Order({
       customerName,
       customerPhone,
       customerId,
       product: product._id,
-      owner: product.owner,
+      owner: ownerId,
       quantity,
       totalPrice,
       location,
@@ -102,11 +104,15 @@ router.post('/', customerAuth, async (req, res) => {
     };
 
     // Trigger a Pusher event on a channel specific to the seller
-    try {
-      await pusher.trigger(`seller-${product.owner.toString()}`, 'new-order', orderData);
-      console.log(`Pusher event sent to seller-${product.owner.toString()}`);
-    } catch (pusherError) {
-      console.error('Pusher error:', pusherError);
+    if (ownerId) {
+      try {
+        await pusher.trigger(`seller-${ownerId.toString()}`, 'new-order', orderData);
+        console.log(`Pusher event sent to seller-${ownerId.toString()}`);
+      } catch (pusherError) {
+        console.error('Pusher error:', pusherError);
+      }
+    } else {
+      console.log('No owner ID available for Pusher notification (likely a global product without a vendorId).');
     }
 
     res.status(201).json({ message: 'Order placed and seller notified successfully', order: orderData });

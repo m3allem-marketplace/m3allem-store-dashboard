@@ -81,6 +81,48 @@ router.post('/register', async (req, res) => {
     });
 
     const savedUser = await newUser.save();
+
+    // Copy global products of this category to the new user's shop
+    try {
+      const Category = require('../models/Category');
+      const Product = require('../models/Product');
+      const categoryDoc = await Category.findOne({ categoryId });
+      
+      if (categoryDoc) {
+        const globalProducts = await Product.find({ isGlobal: true, category: categoryDoc._id });
+        
+        if (globalProducts.length > 0) {
+          const clonedProducts = globalProducts.map(p => {
+            const productObj = p.toObject();
+            delete productObj._id;
+            delete productObj.createdAt;
+            delete productObj.updatedAt;
+            delete productObj.__v;
+            
+            if (productObj.product_id) {
+              productObj.product_id = productObj.product_id + '-' + savedUser._id.toString().slice(-6);
+            }
+            
+            productObj.shop = {
+              shop_id: savedUser._id.toString(),
+              name_ar: savedUser.shopName,
+              address: savedUser.location,
+              rating: productObj.shop && productObj.shop.rating ? productObj.shop.rating : 0,
+              delivery_time: productObj.shop && productObj.shop.delivery_time ? productObj.shop.delivery_time : ''
+            };
+            productObj.owner = savedUser._id;
+            productObj.isGlobal = false;
+            
+            return productObj;
+          });
+
+          await Product.insertMany(clonedProducts);
+        }
+      }
+    } catch (copyErr) {
+      console.error('Error copying global products:', copyErr);
+    }
+
     res.status(201).json(savedUser);
   } catch (err) {
     res.status(500).json({ error: err.message });
