@@ -88,14 +88,18 @@ router.post('/', customerAuth, async (req, res) => {
     await order.save();
 
     const orderData = {
-      orderId: order._id,
-      customerName,
-      customerPhone,
-      productName: product.name,
-      productId: product._id,
-      quantity,
-      price: product.price,
-      totalPrice,
+      _id: order._id,
+      customerName: order.customerName,
+      customerPhone: order.customerPhone,
+      customerId: order.customerId,
+      product: {
+        _id: product._id,
+        name: product.name,
+        price: product.price
+      },
+      owner: order.owner,
+      quantity: order.quantity,
+      totalPrice: order.totalPrice,
       location: order.location,
       latitude: order.latitude,
       longitude: order.longitude,

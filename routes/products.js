@@ -162,15 +162,8 @@ router.get('/', auth, async (req, res) => {
     const categoryObjectId = categoryDoc ? categoryDoc._id : null;
 
     const query = {
-      $or: [
-        { owner: req.user }
-      ]
+      owner: req.user
     };
-    
-    // If we found their category object ID, allow them to also see global products in that category
-    if (categoryObjectId) {
-      query.$or.push({ isGlobal: true, category: categoryObjectId });
-    }
 
     // Optional category filter if the frontend still passes it explicitly
     if (req.query.category) {
@@ -246,7 +239,7 @@ router.put('/:id', auth, upload.single('image'), async (req, res) => {
   try {
     const product = await Product.findOne({
       _id: req.params.id,
-      $or: [{ owner: req.user }, { isGlobal: true }]
+      owner: req.user
     });
     if (!product) {
       return res.status(404).json({ message: 'Product not found or unauthorized.' });
