@@ -1,6 +1,7 @@
 const express = require('express');
 const Product = require('../models/Product');
 const auth = require('../middleware/auth');
+const { upload } = require('../config/cloudinary');
 
 const router = express.Router();
 
@@ -22,16 +23,21 @@ const router = express.Router();
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         multipart/form-data:
  *           schema:
  *             type: object
  *             properties:
  *               name:
  *                 type: string
+ *               name_ar:
+ *                 type: string
  *               description:
  *                 type: string
  *               price:
  *                 type: number
+ *               image:
+ *                 type: string
+ *                 format: binary
  *     responses:
  *       201:
  *         description: Product created successfully
@@ -41,9 +47,13 @@ const router = express.Router();
  *         description: Unauthorized
  */
 // Create a product
-router.post('/', auth, async (req, res) => {
+router.post('/', auth, upload.single('image'), async (req, res) => {
   try {
     const { name, name_ar, description, price, product_id, sub_category, brand, currency, unit, specifications } = req.body;
+    let image = req.body.image;
+    if (req.file) {
+      image = req.file.path;
+    }
     
     if ((!name && !name_ar) || !price) {
       return res.status(400).json({ message: 'Name (or name_ar) and price are required.' });
@@ -64,6 +74,7 @@ router.post('/', auth, async (req, res) => {
       name_ar,
       description,
       price,
+      image,
       product_id,
       sub_category,
       brand,
@@ -193,7 +204,7 @@ router.get('/', auth, async (req, res) => {
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         multipart/form-data:
  *           schema:
  *             type: object
  *             properties:
@@ -221,6 +232,9 @@ router.get('/', auth, async (req, res) => {
  *                 type: object
  *               category:
  *                 type: string
+ *               image:
+ *                 type: string
+ *                 format: binary
  *     responses:
  *       200:
  *         description: Product updated successfully
@@ -228,7 +242,7 @@ router.get('/', auth, async (req, res) => {
  *         description: Product not found or unauthorized
  */
 // Update a product
-router.put('/:id', auth, async (req, res) => {
+router.put('/:id', auth, upload.single('image'), async (req, res) => {
   try {
     const product = await Product.findOne({ _id: req.params.id, owner: req.user });
     if (!product) {
@@ -236,11 +250,16 @@ router.put('/:id', auth, async (req, res) => {
     }
 
     const { name, name_ar, description, price, category: categoryId, product_id, sub_category, brand, currency, unit, specifications, shop } = req.body;
+    let image = req.body.image;
+    if (req.file) {
+      image = req.file.path;
+    }
     
     if (name) product.name = name;
     if (name_ar) product.name_ar = name_ar;
     if (description) product.description = description;
     if (price) product.price = price;
+    if (image) product.image = image;
     if (categoryId) product.category = categoryId;
     if (product_id) product.product_id = product_id;
     if (sub_category) product.sub_category = sub_category;
