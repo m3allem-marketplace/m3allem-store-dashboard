@@ -118,7 +118,10 @@ router.post('/', customerAuth, async (req, res) => {
     res.status(201).json({ message: 'Order placed and seller notified successfully', order: orderData });
   } catch (err) {
     console.error('Error creating order:', err);
-    res.status(500).json({ message: 'Server error while creating order' });
+    res.status(500).json({ 
+      message: 'Server error while creating order', 
+      error: err.message 
+    });
   }
 });
 
@@ -214,19 +217,20 @@ router.put('/:id/status', auth, async (req, res) => {
       return res.status(400).json({ message: 'Invalid status' });
     }
 
-    const order = await Order.findOne({ _id: req.params.id, owner: req.user });
+    const order = await Order.findOneAndUpdate(
+      { _id: req.params.id, owner: req.user },
+      { status },
+      { new: true, runValidators: true }
+    );
     
     if (!order) {
       return res.status(404).json({ message: 'Order not found or unauthorized' });
     }
 
-    order.status = status;
-    await order.save();
-
     res.json({ message: 'Order status updated successfully', order });
   } catch (err) {
     console.error('Error updating order status:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
